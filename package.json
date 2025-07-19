@@ -1,17 +1,31 @@
 {
-    "$schema": "https://json.schemastore.org/package.json",
-    "private": true,
+    "name": "project-management",
+    "version": "1.0.0",
+    "description": "PSU KAB. BERAU Project Management System",
     "type": "module",
+    "main": "index.js",
     "scripts": {
+        "dev": "vite",
         "build": "vite build",
-        "dev": "vite"
+        "watch": "vite build --watch"
     },
     "devDependencies": {
-        "@tailwindcss/vite": "^4.0.0",
-        "axios": "^1.8.2",
-        "concurrently": "^9.0.1",
-        "laravel-vite-plugin": "^1.2.0",
-        "tailwindcss": "^4.0.0",
-        "vite": "^6.2.4"
+        "@tailwindcss/forms": "^0.5.10",
+        "autoprefixer": "^10.4.21",
+        "axios": "^1.6.4",
+        "laravel-vite-plugin": "^1.0.0",
+        "postcss": "^8.5.6",
+        "tailwindcss": "^3.4.17",
+        "vite": "^5.0.0"
+    },
+    "dependencies": {
+        "datatables.net": "^2.3.2",
+        "datatables.net-dt": "^2.3.2",
+        "dropzone": "^6.0.0-beta.2",
+        "flatpickr": "^4.6.13",
+        "jquery": "^3.7.1",
+        "loadash": "^1.0.0",
+        "lodash": "^4.17.21",
+        "preline": "^2.7.0"
     }
 }

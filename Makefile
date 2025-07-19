@@ -20,7 +20,19 @@ logs:
 shell:
 	docker-compose exec app bash
 
-# Install Laravel
+# Install npm dependencies
+npm-install:
+	docker-compose exec app npm install
+
+# Build assets
+npm-build:
+	docker-compose exec app npm run build
+
+# Watch assets
+npm-dev:
+	docker-compose exec app npm run dev
+
+# Install Laravel and setup Preline
 install:
 	docker-compose exec app composer create-project laravel/laravel tmp
 	docker-compose exec app cp -r tmp/* .
@@ -28,6 +40,7 @@ install:
 	docker-compose exec app rm -rf tmp
 	docker-compose exec app chmod +x scripts/setup-env.sh
 	docker-compose exec app ./scripts/setup-env.sh
+	docker-compose exec app npm install
 
 # Start Laravel server
 serve:
@@ -63,4 +76,7 @@ help:
 	@echo "  make migrate     - Run migrations"
 	@echo "  make cache-clear - Clear cache"
 	@echo "  make serve       - Start Laravel server"
+	@echo "  make npm-install - Install npm dependencies"
+	@echo "  make npm-build   - Build assets"
+	@echo "  make npm-dev     - Watch assets development"
 	@echo "  make fresh       - Fresh install"
