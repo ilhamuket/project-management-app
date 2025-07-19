@@ -1,6 +1,12 @@
 import './bootstrap';
 import 'preline/preline';
 
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+Alpine.start();
+
 // Import Flatpickr
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
