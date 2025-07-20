@@ -14,8 +14,15 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
-
-    Route::post('register', [RegisteredUserController::class, 'store']);
+        // Registration route temporarily closed
+        Route::post('register', function() {
+            return response()->json([
+                'message' => 'Mohon maaf, silahkan tanyakan admin.'
+            ], 403);
+        });
+        
+        // Original route (commented out)
+        // Route::post('register', [RegisteredUserController::class, 'store']);
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
