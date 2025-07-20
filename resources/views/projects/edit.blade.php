@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-2xs dark:bg-neutral-800">
-    <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-neutral-200">Edit Paket Pekerjaan</h2>
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-2xs">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Edit Paket Pekerjaan</h2>
 
     <form action="{{ route('projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
         <div class="mb-4">
-            <label for="paket_pekerjaan" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Paket Pekerjaan</label>
+            <label for="paket_pekerjaan" class="block text-sm font-medium text-gray-700 mb-2">Paket Pekerjaan</label>
             <input type="text" id="paket_pekerjaan" name="paket_pekerjaan" value="{{ old('paket_pekerjaan', $project->paket_pekerjaan) }}" placeholder="Masukkan nama paket pekerjaan"
-                   class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                   class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
             @error('paket_pekerjaan')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
@@ -19,14 +19,14 @@
 
         <div class="grid grid-cols-2 gap-4 mb-4">
             <div>
-                <label for="tanggal_mulai_display" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Tanggal Mulai</label>
+                <label for="tanggal_mulai_display" class="block text-sm font-medium text-gray-700 mb-2">Tanggal Mulai</label>
                 <div class="relative">
                     <input id="tanggal_mulai_display" type="text" 
-                           class="datepicker py-3 px-4 pe-11 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" 
+                           class="datepicker py-3 px-4 pe-11 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" 
                            placeholder="DD/MM/YYYY" value="{{ old('tanggal_mulai', $project->tanggal_mulai->format('d/m/Y')) }}" readonly>
                     <input type="hidden" id="tanggal_mulai" name="tanggal_mulai" value="{{ old('tanggal_mulai', $project->tanggal_mulai->format('Y-m-d')) }}">
                     <div class="absolute inset-y-0 end-0 flex items-center pointer-events-none pe-4">
-                        <svg class="flex-shrink-0 size-4 text-gray-500 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="flex-shrink-0 size-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
                             <line x1="16" x2="16" y1="2" y2="6"></line>
                             <line x1="8" x2="8" y1="2" y2="6"></line>
@@ -39,14 +39,14 @@
                 @enderror
             </div>
             <div>
-                <label for="tanggal_selesai_display" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Tanggal Selesai</label>
+                <label for="tanggal_selesai_display" class="block text-sm font-medium text-gray-700 mb-2">Tanggal Selesai</label>
                 <div class="relative">
                     <input id="tanggal_selesai_display" type="text" 
-                           class="datepicker py-3 px-4 pe-11 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" 
+                           class="datepicker py-3 px-4 pe-11 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" 
                            placeholder="DD/MM/YYYY" value="{{ old('tanggal_selesai', $project->tanggal_selesai->format('d/m/Y')) }}" readonly>
                     <input type="hidden" id="tanggal_selesai" name="tanggal_selesai" value="{{ old('tanggal_selesai', $project->tanggal_selesai->format('Y-m-d')) }}">
                     <div class="absolute inset-y-0 end-0 flex items-center pointer-events-none pe-4">
-                        <svg class="flex-shrink-0 size-4 text-gray-500 dark:text-neutral-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="flex-shrink-0 size-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
                             <line x1="16" x2="16" y1="2" y2="6"></line>
                             <line x1="8" x2="8" y1="2" y2="6"></line>
@@ -62,26 +62,26 @@
 
         <!-- Map Section - Full Width Row -->
         <div class="mb-4">
-            <label class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">
+            <label class="block text-sm font-medium text-gray-700 mb-2">
             Pilih Lokasi di Peta <span class="text-red-500">*</span>
             </label>
-            <div class="border-2 border-gray-200 rounded-lg p-4 dark:border-neutral-700">
+            <div class="border-2 border-gray-200 rounded-lg p-4">
             <div class="mb-3">
                 <button type="button" id="getCurrentLocation" 
-                    class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-700">
+                    class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
                 Gunakan Lokasi Saat Ini
                 </button>
-                <span class="ml-3 text-sm text-gray-500 dark:text-neutral-400">atau klik di peta untuk memilih lokasi</span>
+                <span class="ml-3 text-sm text-gray-500">atau klik di peta untuk memilih lokasi</span>
             </div>
             
             <!-- Map Container -->
             <div id="map" style="height: 400px; width: 100%; border-radius: 8px;"></div>
             
-            <div class="mt-3 text-sm text-gray-600 dark:text-neutral-400">
+            <div class="mt-3 text-sm text-gray-600">
                 <p><strong>Instruksi:</strong></p>
                 <ul class="list-disc list-inside space-y-1 mt-1">
                 <li>Klik tombol "Gunakan Lokasi Saat Ini" untuk otomatis mendeteksi lokasi Anda</li>
@@ -91,9 +91,9 @@
             </div>
             
             <!-- Info lokasi terpilih -->
-            <div id="locationInfo" class="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg {{ $project->koordinat ? '' : 'hidden' }} dark:bg-blue-900/20 dark:border-blue-800">
-                <h4 class="font-medium text-blue-900 dark:text-blue-300 mb-1">Lokasi Terpilih:</h4>
-                <p id="coordinateText" class="text-xs text-blue-600 dark:text-blue-400 mt-1">{{ $project->koordinat }}</p>
+            <div id="locationInfo" class="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg {{ $project->koordinat ? '' : 'hidden' }}">
+                <h4 class="font-medium text-blue-900 mb-1">Lokasi Terpilih:</h4>
+                <p id="coordinateText" class="text-xs text-blue-600 mt-1">{{ $project->koordinat }}</p>
             </div>
             </div>
         </div>
@@ -106,31 +106,31 @@
                 $longitude = isset($coordinates[1]) ? trim($coordinates[1]) : '';
             @endphp
             <div>
-            <label for="latitude" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">
+            <label for="latitude" class="block text-sm font-medium text-gray-700 mb-2">
                 Latitude <span class="text-red-500">*</span>
             </label>
             <input type="number" id="latitude" name="latitude" step="any" readonly
                 value="{{ old('latitude', $latitude) }}"
-                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm bg-gray-50 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 border">
-            <p class="text-xs text-gray-500 dark:text-neutral-500 mt-1">Koordinat lintang (otomatis dari peta)</p>
+                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm bg-gray-50 border">
+            <p class="text-xs text-gray-500 mt-1">Koordinat lintang (otomatis dari peta)</p>
             </div>
 
             <div>
-            <label for="longitude" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">
+            <label for="longitude" class="block text-sm font-medium text-gray-700 mb-2">
                 Longitude <span class="text-red-500">*</span>
             </label>
             <input type="number" id="longitude" name="longitude" step="any" readonly
                 value="{{ old('longitude', $longitude) }}"
-                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm bg-gray-50 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 border">
-            <p class="text-xs text-gray-500 dark:text-neutral-500 mt-1">Koordinat bujur (otomatis dari peta)</p>
+                class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm bg-gray-50 border">
+            <p class="text-xs text-gray-500 mt-1">Koordinat bujur (otomatis dari peta)</p>
             </div>
         </div>
 
         <div class="mb-4">
-            <label for="alamat" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Alamat Lokasi</label>
+            <label for="alamat" class="block text-sm font-medium text-gray-700 mb-2">Alamat Lokasi</label>
             <div class="flex items-center">
             <input type="text" id="alamat" name="alamat" placeholder="Masukkan alamat lokasi paket pekerjaan" value="{{ old('alamat', $project->alamat) }}"
-                  class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                  class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
             <span id="addressLoading" class="hidden ml-2">
                 <svg class="animate-spin h-5 w-5 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -138,7 +138,7 @@
                 </svg>
             </span>
             </div>
-            <p class="text-xs text-gray-500 dark:text-neutral-500 mt-1">Alamat akan otomatis terisi ketika lokasi dipilih pada peta</p>
+            <p class="text-xs text-gray-500 mt-1">Alamat akan otomatis terisi ketika lokasi dipilih pada peta</p>
             @error('alamat')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
@@ -148,21 +148,21 @@
         <input type="hidden" id="koordinat" name="koordinat" value="{{ old('koordinat', $project->koordinat) }}">
 
         <div class="mb-4">
-            <label class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Foto Lokasi</label>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Foto Lokasi</label>
             @if ($project->foto)
                 <div class="mb-2">
                     <img src="{{ asset('storage/' . $project->foto) }}" alt="Foto Lokasi" class="w-32 h-32 object-cover rounded-lg">
                 </div>
             @endif
-            <label for="foto" class="group p-4 sm:p-7 block cursor-pointer text-center border-2 border-dashed border-gray-200 rounded-lg focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 hover:border-gray-300 dark:border-neutral-700 dark:hover:border-neutral-600">
+            <label for="foto" class="group p-4 sm:p-7 block cursor-pointer text-center border-2 border-dashed border-gray-200 rounded-lg focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 hover:border-gray-300">
                 <input id="foto" name="foto" type="file" class="sr-only" accept="image/*">
-                <svg class="size-10 mx-auto text-gray-400 dark:text-neutral-600" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                <svg class="size-10 mx-auto text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                     <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
-                <span class="mt-2 block text-sm font-medium text-gray-800 dark:text-neutral-200">
+                <span class="mt-2 block text-sm font-medium text-gray-800">
                     Browse your device or <span class="group-hover:text-blue-700 text-blue-600">drag 'n drop'</span>
                 </span>
-                <span class="mt-1 block text-xs text-gray-500 dark:text-neutral-500">
+                <span class="mt-1 block text-xs text-gray-500">
                     Maximum file size is 2MB
                 </span>
             </label>
@@ -172,9 +172,9 @@
         </div>
 
         <div class="mb-4">
-            <label for="jenis_konstruksi" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Jenis Konstruksi</label>
+            <label for="jenis_konstruksi" class="block text-sm font-medium text-gray-700 mb-2">Jenis Konstruksi</label>
             <select id="jenis_konstruksi" name="jenis_konstruksi" 
-                    class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                    class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
                 <option value="" disabled>Pilih jenis konstruksi</option>
                 <option value="Cor Beton" {{ old('jenis_konstruksi', $project->jenis_konstruksi) == 'Cor Beton' ? 'selected' : '' }}>Cor Beton</option>
                 <option value="Drainase" {{ old('jenis_konstruksi', $project->jenis_konstruksi) == 'Drainase' ? 'selected' : '' }}>Drainase</option>
@@ -188,25 +188,25 @@
 
         <div class="grid grid-cols-3 gap-4 mb-4">
             <div>
-                <label for="panjang" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Panjang (P) - meter</label>
+                <label for="panjang" class="block text-sm font-medium text-gray-700 mb-2">Panjang (P) - meter</label>
                 <input type="number" id="panjang" name="panjang" step="0.01" placeholder="0.00" value="{{ old('panjang', $project->panjang) }}"
-                       class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                       class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
                 @error('panjang')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
             </div>
             <div>
-                <label for="lebar" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Lebar (L) - meter</label>
+                <label for="lebar" class="block text-sm font-medium text-gray-700 mb-2">Lebar (L) - meter</label>
                 <input type="number" id="lebar" name="lebar" step="0.01" placeholder="0.00" value="{{ old('lebar', $project->lebar) }}"
-                       class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                       class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
                 @error('lebar')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
             </div>
             <div>
-                <label for="tebal" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Tebal (T) - cm</label>
+                <label for="tebal" class="block text-sm font-medium text-gray-700 mb-2">Tebal (T) - cm</label>
                 <input type="number" id="tebal" name="tebal" step="0.01" placeholder="0.00" value="{{ old('tebal', $project->tebal) }}"
-                       class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                       class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
                 @error('tebal')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
@@ -214,43 +214,43 @@
         </div>
 
         <div class="mb-4">
-            <label for="nilai_kontrak" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Nilai Kontrak (Rp)</label>
+            <label for="nilai_kontrak" class="block text-sm font-medium text-gray-700 mb-2">Nilai Kontrak (Rp)</label>
             <input type="number" id="nilai_kontrak" name="nilai_kontrak" placeholder="0" value="{{ old('nilai_kontrak', $project->nilai_kontrak) }}"
-                   class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                   class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
             @error('nilai_kontrak')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
         </div>
 
         <div class="mb-4">
-            <label for="nama_kontraktor" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Nama Kontraktor</label>
+            <label for="nama_kontraktor" class="block text-sm font-medium text-gray-700 mb-2">Nama Kontraktor</label>
             <input type="text" id="nama_kontraktor" name="nama_kontraktor" placeholder="Masukkan nama kontraktor" value="{{ old('nama_kontraktor', $project->nama_kontraktor) }}"
-                   class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                   class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
             @error('nama_kontraktor')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
         </div>
 
         <div class="mb-4">
-            <label for="nama_konsultan_perencana" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Nama Konsultan Perencana</label>
+            <label for="nama_konsultan_perencana" class="block text-sm font-medium text-gray-700 mb-2">Nama Konsultan Perencana</label>
             <input type="text" id="nama_konsultan_perencana" name="nama_konsultan_perencana" placeholder="Masukkan nama konsultan perencana" value="{{ old('nama_konsultan_perencana', $project->nama_konsultan_perencana) }}"
-                   class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                   class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
             @error('nama_konsultan_perencana')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
         </div>
 
         <div class="mb-4">
-            <label for="nama_konsultan_pengawas" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Nama Konsultan Pengawas</label>
+            <label for="nama_konsultan_pengawas" class="block text-sm font-medium text-gray-700 mb-2">Nama Konsultan Pengawas</label>
             <input type="text" id="nama_konsultan_pengawas" name="nama_konsultan_pengawas" placeholder="Masukkan nama konsultan pengawas" value="{{ old('nama_konsultan_pengawas', $project->nama_konsultan_pengawas) }}"
-                   class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                   class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
             @error('nama_konsultan_pengawas')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
         </div>
 
         <div class="mb-4">
-            <label class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Dokumen Kontrak</label>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Dokumen Kontrak</label>
             @if ($project->dokumen_kontrak)
                 <div class="mb-2">
                     @foreach (json_decode($project->dokumen_kontrak, true) as $dokumen)
@@ -258,17 +258,17 @@
                     @endforeach
                 </div>
             @endif
-            <label for="dokumen_kontrak" class="group p-4 sm:p-7 block cursor-pointer text-center border-2 border-dashed border-gray-200 rounded-lg focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 hover:border-gray-300 dark:border-neutral-700 dark:hover:border-neutral-600">
+            <label for="dokumen_kontrak" class="group p-4 sm:p-7 block cursor-pointer text-center border-2 border-dashed border-gray-200 rounded-lg focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 hover:border-gray-300">
                 <input id="dokumen_kontrak" name="dokumen_kontrak[]" type="file" class="sr-only" multiple accept=".pdf,.doc,.docx">
-                <svg class="size-10 mx-auto text-gray-400 dark:text-neutral-600" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                <svg class="size-10 mx-auto text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                     <path d="M40 12H8a4 4 0 00-4 4v16a4 4 0 004 4h32a4 4 0 004-4V16a4 4 0 00-4-4z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M16 12v-2a4 4 0 014-4h8a4 4 0 014 4v2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M12 20h24" stroke-width="2" stroke-linecap="round"/>
                 </svg>
-                <span class="mt-2 block text-sm font-medium text-gray-800 dark:text-neutral-200">
+                <span class="mt-2 block text-sm font-medium text-gray-800">
                     Browse your device or <span class="group-hover:text-blue-700 text-blue-600">drag 'n drop'</span>
                 </span>
-                <span class="mt-1 block text-xs text-gray-500 dark:text-neutral-500">
+                <span class="mt-1 block text-xs text-gray-500">
                     Upload Kontrak, SP2D, PHO, FHO, dll. (PDF, DOC, DOCX)
                 </span>
             </label>
@@ -278,9 +278,9 @@
         </div>
 
         <div class="mb-4">
-            <label for="tipe_anggaran" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Tipe Anggaran</label>
+            <label for="tipe_anggaran" class="block text-sm font-medium text-gray-700 mb-2">Tipe Anggaran</label>
             <select id="tipe_anggaran" name="tipe_anggaran" 
-                    class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                    class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
                 <option value="" disabled>Pilih tipe anggaran</option>
                 <option value="APBD" {{ old('tipe_anggaran', $project->tipe_anggaran) == 'APBD' ? 'selected' : '' }}>APBD</option>
                 <option value="APBDP" {{ old('tipe_anggaran', $project->tipe_anggaran) == 'APBDP' ? 'selected' : '' }}>APBDP</option>
@@ -291,9 +291,9 @@
         </div>
 
         <div class="mb-4">
-            <label for="status" class="block text-sm font-medium text-gray-700 dark:text-neutral-300 mb-2">Status</label>
+            <label for="status" class="block text-sm font-medium text-gray-700 mb-2">Status</label>
             <select id="status" name="status" 
-                    class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                    class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
                 <option value="" disabled>Pilih status paket pekerjaan</option>
                 <option value="Belum dimulai" {{ old('status', $project->status) == 'Belum dimulai' ? 'selected' : '' }}>Belum dimulai</option>
                 <option value="Progress" {{ old('status', $project->status) == 'Progress' ? 'selected' : '' }}>Progress</option>

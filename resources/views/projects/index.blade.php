@@ -5,14 +5,14 @@
 <div class="flex flex-col">
     <div class="-m-1.5 overflow-x-auto">
         <div class="p-1.5 min-w-full inline-block align-middle">
-            <div class="bg-white border border-gray-200 rounded-xl shadow-2xs overflow-hidden dark:bg-neutral-800 dark:border-neutral-700">
+            <div class="bg-white border border-gray-200 rounded-xl shadow-2xs overflow-hidden">
                 <!-- Header -->
-                <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700">
+                <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200">
                     <div>
-                        <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
+                        <h2 class="text-xl font-semibold text-gray-800">
                             Paket Pekerjaan
                         </h2>
-                        <p class="text-sm text-gray-600 dark:text-neutral-400">
+                        <p class="text-sm text-gray-600">
                             Tambah paket pekerjaan, edit dan lainnya.
                         </p>
                     </div>
@@ -33,43 +33,44 @@
                 <!-- End Header -->
 
                 <!-- Table -->
-                <table id="projects-table" class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
-                    <thead class="bg-gray-50 dark:bg-neutral-800">
+                <table id="projects-table" class="min-w-full divide-y divide-gray-200 responsive nowrap">
+                    <thead class="bg-gray-50">
                         <tr>
+                            <th scope="col" class="w-10 px-3"></th>
                             <th scope="col" class="ps-6 py-3 text-start">
                                 No
                             </th>
                             <th scope="col" class="ps-6 lg:ps-3 xl:ps-0 pe-6 py-3 text-start">
                                 <div class="flex items-center gap-x-2">
-                                    <span class="text-xs font-semibold uppercase text-gray-800 dark:text-neutral-200">
+                                    <span class="text-xs font-semibold uppercase text-gray-800">
                                         Paket Pekerjaan
                                     </span>
                                 </div>
                             </th>
                             <th scope="col" class="px-6 py-3 text-start">
                                 <div class="flex items-center gap-x-2">
-                                    <span class="text-xs font-semibold uppercase text-gray-800 dark:text-neutral-200">
+                                    <span class="text-xs font-semibold uppercase text-gray-800">
                                         Waktu
                                     </span>
                                 </div>
                             </th>
                             <th scope="col" class="px-6 py-3 text-start">
                                 <div class="flex items-center gap-x-2">
-                                    <span class="text-xs font-semibold uppercase text-gray-800 dark:text-neutral-200">
+                                    <span class="text-xs font-semibold uppercase text-gray-800">
                                         Status
                                     </span>
                                 </div>
                             </th>
                             <th scope="col" class="px-6 py-3 text-start">
                                 <div class="flex items-center gap-x-2">
-                                    <span class="text-xs font-semibold uppercase text-gray-800 dark:text-neutral-200">
+                                    <span class="text-xs font-semibold uppercase text-gray-800">
                                         Nilai Kontrak
                                     </span>
                                 </div>
                             </th>
                             <th scope="col" class="px-6 py-3 text-start">
                                 <div class="flex items-center gap-x-2">
-                                    <span class="text-xs font-semibold uppercase text-gray-800 dark:text-neutral-200">
+                                    <span class="text-xs font-semibold uppercase text-gray-800">
                                         Alamat
                                     </span>
                                 </div>
@@ -77,7 +78,7 @@
                             <th scope="col" class="px-6 py-3 text-end">Aksi</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
+                    <tbody class="divide-y divide-gray-200">
                         <!-- Data will be loaded by DataTables -->
                     </tbody>
                 </table>
@@ -104,7 +105,9 @@
 
 @section('scripts')
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
 
 <style>
 /* Modern DataTables styling */
@@ -144,11 +147,6 @@
     min-width: 240px;
 }
 
-.dataTables_wrapper .dataTables_info {
-    font-size: 0.875rem;
-    color: #6b7280;
-    padding: 1rem 0;
-}
 
 .dataTables_wrapper .dataTables_paginate {
     padding: 1rem 0;
@@ -202,13 +200,6 @@ table.dataTable thead th {
     font-weight: 600;
 }
 
-table.dataTable tbody td {
-    padding: 1rem !important;
-    vertical-align: middle;
-    border-bottom: 1px solid #f3f4f6;
-    font-size: 0.875rem;
-}
-
 table.dataTable tbody tr:last-child td {
     border-bottom: none;
 }
@@ -217,40 +208,48 @@ table.dataTable tbody tr:hover {
     background-color: #f9fafb !important;
 }
 
-/* Dark mode support */
-.dark .dataTables_wrapper .dataTables_length select,
-.dark .dataTables_wrapper .dataTables_filter input {
-    background-color: #262626;
-    border-color: #404040;
-    color: #e5e7eb;
+/* Make text color darker and more visible */
+table.dataTable tbody td {
+    padding: 1rem !important;
+    vertical-align: middle;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.875rem;
+    color: #000000; /* Change to black for better visibility */
 }
 
-.dark .dataTables_wrapper .dataTables_paginate .paginate_button {
-    background-color: #262626 !important;
-    border-color: #404040 !important;
-    color: #e5e7eb !important;
+/* Fix other gray text instances in the table */
+.dataTables_wrapper .dataTables_info {
+    font-size: 0.875rem;
+    color: #000000; /* Changed from #6b7280 */
+    padding: 1rem 0;
 }
 
-.dark .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-    background-color: #2563eb !important;
-    border-color: #2563eb !important;
+/* Ensure consistent text coloring in renders */
+table.dataTable .text-sm,
+table.dataTable .text-xs,
+table.dataTable .text-gray-900 {
+    color: #000000;
 }
 
-.dark table.dataTable thead th {
-    background-color: #1f2937;
-    color: #f3f4f6;
+/* Improve responsive controls */
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control:before {
+    margin-right: 0;
+    background-color: #3b82f6;
+    border: 1px solid #3b82f6;
+    box-shadow: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    line-height: 16px;
+    text-align: center;
 }
 
-.dark table.dataTable tbody td {
-    border-bottom: 1px solid #374151;
-}
-
-.dark table.dataTable tbody tr:hover {
-    background-color: #1f2937 !important;
-}
-
-.dark .dataTables_wrapper .dataTables_info {
-    color: #9ca3af;
+/* First column with expand button */
+table.dataTable td.dtr-control {
+    padding-left: 15px !important;
+    position: relative;
+    cursor: pointer;
 }
 </style>
 
@@ -285,16 +284,25 @@ $(document).ready(function() {
     let table = $('#projects-table').DataTable({
         processing: true,
         serverSide: true,
+        responsive: true, // Enable responsive features
         ajax: {
             url: "{{ route('projects.data') }}",
             type: "GET"
         },
         columns: [
             {
+                className: 'dtr-control',
+                orderable: false,
+                data: null,
+                defaultContent: '',
+                responsivePriority: 1
+            },
+            {
                 data: null,
                 name: 'DT_RowIndex',
                 orderable: false,
                 searchable: false,
+                responsivePriority: 2,
                 render: function(data, type, row, meta) {
                     return meta.row + meta.settings._iDisplayStart + 1;
                 }
@@ -302,11 +310,12 @@ $(document).ready(function() {
             { 
                 data: 'paket_pekerjaan', 
                 name: 'paket_pekerjaan',
+                responsivePriority: 3,
                 render: function(data, type, row) {
                     return `<div class="flex items-center gap-x-3">
                               <div class="grow">
-                                <span class="block text-sm font-semibold text-gray-800 dark:text-neutral-200">${data}</span>
-                                <span class="block text-sm text-gray-500 dark:text-neutral-500">${row.jenis_konstruksi}</span>
+                                <a href="/projects/${row.id}" class="block text-sm text-blue-600 hover:underline">${data}</a>
+                                <span class="block text-sm ">${row.jenis_konstruksi}</span>
                               </div>
                             </div>`;
                 }
@@ -315,7 +324,7 @@ $(document).ready(function() {
                 data: 'waktu', 
                 name: 'waktu',
                 render: function(data, type, row) {
-                    return `<span class="block text-sm font-semibold text-gray-800 dark:text-neutral-200">${data}</span>`;
+                    return `<span class="block text-sm font-semibold text-gray-900">${data}</span>`;
                 }
             },
             { 
@@ -326,13 +335,13 @@ $(document).ready(function() {
                     let statusIcon = '';
                     
                     if (data === 'Berlangsung') {
-                        statusClass = 'bg-teal-100 text-teal-800 dark:bg-teal-500/10 dark:text-teal-500';
+                        statusClass = 'bg-teal-100 text-teal-800';
                         statusIcon = '<svg class="size-2.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" /></svg>';
                     } else if (data === 'Selesai') {
-                        statusClass = 'bg-blue-100 text-blue-800 dark:bg-blue-500/10 dark:text-blue-500';
+                        statusClass = 'bg-blue-100 text-blue-800';
                         statusIcon = '<svg class="size-2.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" /></svg>';
                     } else if (data === 'Tertunda') {
-                        statusClass = 'bg-yellow-100 text-yellow-800 dark:bg-yellow-500/10 dark:text-yellow-500';
+                        statusClass = 'bg-yellow-100 text-yellow-800';
                         statusIcon = '<svg class="size-2.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/></svg>';
                     }
                     
@@ -347,7 +356,7 @@ $(document).ready(function() {
                 name: 'nilai_kontrak',
                 render: function(data) {
                     return `<div class="flex items-center gap-x-3">
-                              <span class="text-xs text-gray-500 dark:text-neutral-500">${data}</span>
+                              <span class="text-xs text-gray-900">${data}</span>
                             </div>`;
                 }
             },
@@ -355,7 +364,7 @@ $(document).ready(function() {
                 data: 'alamat', 
                 name: 'alamat',
                 render: function(data) {
-                    return `<span class="text-sm text-gray-500 dark:text-neutral-500">${data}</span>`;
+                    return `<span class="text-sm text-gray-900">${data}</span>`;
                 }
             },
             { 
@@ -363,13 +372,14 @@ $(document).ready(function() {
                 name: 'action',
                 orderable: false,
                 searchable: false,
+                responsivePriority: 4,
                 render: function(data, type, row) {
                     return `<div class="flex justify-end gap-x-3">
-                              <a class="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500" href="/projects/${row.id}/edit">
-                                Edit
+                              <a class="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium" href="/projects/${row.id}/edit">
+                                <span class="text-blue-600">Edit</span>
                               </a>
-                              <a class="inline-flex items-center gap-x-1 text-sm text-red-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-red-500" href="#" onclick="deleteProject(${row.id}); return false;">
-                                Delete
+                              <a class="inline-flex items-center gap-x-1 text-sm text-red-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium" href="#" onclick="deleteProject(${row.id}); return false;">
+                                <span class="text-red-600">Delete</span>
                               </a>
                             </div>`;
                 }
@@ -389,11 +399,34 @@ $(document).ready(function() {
             infoFiltered: "(difilter dari _MAX_ total hasil)",
             processing: '<div class="flex justify-center items-center py-4"><div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>'
         },
-        drawCallback: function() {
-           
-        }
+        // Improved responsive settings
+        responsive: {
+            details: {
+                type: 'column',
+                target: 0,
+                renderer: function(api, rowIdx, columns) {
+                    var data = '<table class="w-full text-sm border-collapse bg-gray-50 p-2 rounded">';
+                    
+                    $.each(columns, function(i, col) {
+                        // Skip rendering the control column and visible columns
+                        if (col.hidden) {
+                            data += '<tr class="border-b border-gray-100">' +
+                                '<td class="py-2 px-4 font-semibold" style="width: 30%">' + col.title + ':</td>' +
+                                '<td class="py-2 px-4">' + col.data + '</td>' +
+                                '</tr>';
+                        }
+                    });
+                    
+                    data += '</table>';
+                    
+                    return data ? 
+                        $('<div class="py-2 px-3 bg-gray-50 rounded my-2"/>')
+                            .append(data) : false;
+                }
+            }
+        },
+        order: [[1, 'asc']] // Order by the second column (index) by default
     });
-   
 });
 </script>
 @endsection

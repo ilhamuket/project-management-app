@@ -42,21 +42,10 @@
 
   <!-- Theme Check and Update -->
 <script>
-    // Always set to light theme regardless of system preference or stored setting
-    const html = document.querySelector('html');
-    
-    // Remove dark class if present
-    if (html.classList.contains('dark')) {
+     const html = document.documentElement;
         html.classList.remove('dark');
-    }
-    
-    // Ensure light class is applied
-    if (!html.classList.contains('light')) {
         html.classList.add('light');
-    }
-    
-    // Set the theme in localStorage
-    localStorage.setItem('hs_theme', 'light');
+        localStorage.setItem('hs_theme', 'light');
 </script>
   <!-- Apexcharts -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts/dist/apexcharts.css">
@@ -72,7 +61,7 @@
   <link rel="stylesheet" href="https://preline.co/assets/css/main.css?v=3.1.0">
 </head>
 
-<body class="bg-gray-50 dark:bg-neutral-900">
+<body class="bg-gray-50">
   @include('components.header')
 
   <!-- ========== MAIN CONTENT ========== -->

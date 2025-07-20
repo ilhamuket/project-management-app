@@ -129,6 +129,12 @@ class ProjectController extends Controller
         }
     }
 
+    public function show(Project $project)
+    {
+        \Log::info('Accessing project details', ['project_id' => $project->id]);
+        return view('projects.show', compact('project'));
+    }
+
     public function destroy(Project $project)
     {
         \Log::info('Attempt to delete project', ['project_id' => $project->id]);
